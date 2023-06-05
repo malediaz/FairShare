@@ -1,0 +1,17 @@
+<h1>Detalles del Grupo</h1>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+
+<p>Nombre: <%= @grupo.nombre %></p>
+<p>Descripción: <%= @grupo.descripcion %></p>
+<h2>Integrantes:</h2>
+<ul>
+  <% @usuarios_grupo.each do |usuario| %>
+    <li><%= usuario.nombre %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Volver', grupos_path, class: 'btn btn-primary' %>

@@ -1,0 +1,2 @@
+class GastosController < ApplicationController
+end

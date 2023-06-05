@@ -1,0 +1,27 @@
+<h1>Nuevo Usuario</h1>
+
+<%= form_with(model: @usuario, url: usuarios_path) do |form| %>
+  <div class="field">
+    <%= form.label :Nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= form.label :'Correo electrónico' %>
+    <%= form.email_field :email %>
+  </div>
+  <div class="field">
+  <%= form.label :Contraseña %>
+  <%= form.password_field :contraseña %>
+  </div>
+  <div class="field">
+  <%= form.label :'Confirmación de Contraseña' %>
+  <%= form.password_field :confir %>
+  </div>
+
+  <div class="actions">
+  <%= form.submit "Crear Usuario", class: 'btn btn-primary' %>
+  <%= link_to 'Cancelar', root_path, class: 'btn-cancel' %>
+  </div>
+
+  <% end %>
+  

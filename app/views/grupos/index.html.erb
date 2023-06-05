@@ -1,0 +1,23 @@
+<h1>Lista de Grupos</h1>
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+<% end %>
+
+
+<ul>
+<% @grupos.each do |grupo| %>
+    <li><%= grupo.nombre %>
+    <%= link_to 'Ver detalles', grupo_path(grupo), class: 'btn btn-info btn-sm' %>
+    <%= link_to 'Editar', edit_grupo_path(grupo), class: 'btn btn btn-primary btn-sm' %></li>
+    <%= form_with(model: grupo, url: grupo_path(grupo), data: { confirm: "¿Está seguro de que desea eliminar este grupo?" }, method: :delete) do |form| %> 
+        <%= form.submit "Eliminar", class: 'btn btn-danger btn-sm' %> 
+    <% end %>
+<% end %>
+</ul>
+
+<%= link_to 'Volver', root_path, class: 'btn btn-dark' %>
